@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IFL: Hyderabad vs North East — Event Details</title>
+<style>
+  :root {
+    --color-bg: #161826;
+    --color-surface: #232532;
+    --color-text: #e9e9ed;
+    --color-accent: #9184d9;
+    --color-accent-300: #d2cefd;
+    --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+    --color-neutral-300: #cfd3e5;
+    --color-neutral-400: #b2b6ca;
+    --color-neutral-500: #9397ab;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --font-heading: "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-300); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 24px 64px; }
+  .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+  .back-link { font-size: 13px; color: var(--color-neutral-400); display: inline-flex; align-items: center; gap: 6px; }
+  .back-link:hover { color: var(--color-accent-300); }
+  .kicker {
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--color-accent); font-weight: 600; margin-bottom: 10px;
+  }
+  h1 {
+    font-family: var(--font-heading); font-weight: 500; font-size: 34px;
+    letter-spacing: -.01em; margin: 0 0 6px;
+  }
+  .promo { color: var(--color-neutral-400); font-size: 14px; margin: 0 0 24px; }
+  .hero-meta {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    margin-bottom: 28px;
+  }
+  .meta-card {
+    background: var(--color-surface); border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md); padding: 14px 16px;
+  }
+  .meta-card .label {
+    font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--color-neutral-500); margin-bottom: 6px;
+  }
+  .meta-card .value { font-family: var(--font-heading); font-size: 16px; }
+  .cta-row { display: flex; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    font-family: var(--font-heading); font-weight: 500; font-size: 14px;
+    padding: 10px 18px; border-radius: var(--radius-md); cursor: pointer;
+  }
+  .btn-primary { color: var(--color-accent); border: 1px solid var(--color-accent); }
+  .btn-primary:hover { background: color-mix(in srgb, var(--color-accent) 12%, transparent); color: var(--color-accent); }
+  .btn-secondary { color: var(--color-text); border: 1px solid var(--color-divider); }
+  .btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-text); }
+  section { margin-bottom: 40px; }
+  h2 {
+    font-family: var(--font-heading); font-weight: 500; font-size: 20px;
+    margin: 0 0 14px; letter-spacing: -.005em;
+  }
+  .card {
+    background: var(--color-surface); border: 1px solid var(--color-divider);
+    border-radius: var(--radius-lg); padding: 20px 22px;
+  }
+  .about-text { font-size: 14px; color: var(--color-neutral-300); margin: 0; }
+  .source-note { font-size: 11.5px; color: var(--color-neutral-500); margin-top: 14px; }
+  .bout {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--color-divider);
+  }
+  .bout:last-child { border-bottom: none; }
+  .bout-tag {
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--color-accent-300); background: rgba(150,138,224,.12);
+    border: 1px solid rgba(150,138,224,.35); border-radius: 4px;
+    padding: 2px 8px; white-space: nowrap;
+  }
+  .bout.main-event .bout-tag { color: #1b1d2b; background: var(--color-accent); border-color: var(--color-accent); }
+  .bout-fighters { flex: 1; min-width: 0; }
+  .fighter-row { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; }
+  .fighter-name { font-weight: 600; }
+  .fighter-record { color: var(--color-neutral-500); font-size: 12.5px; white-space: nowrap; }
+  .vs { text-align: center; font-size: 11px; color: var(--color-neutral-500); margin: 3px 0; }
+  .bout-weight { font-size: 11.5px; color: var(--color-neutral-400); white-space: nowrap; min-width: 90px; text-align: right; }
+  .faq-item { padding: 14px 0; border-bottom: 1px solid var(--color-divider); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .faq-a { font-size: 13.5px; color: var(--color-neutral-400); margin: 0; }
+  .contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  @media (max-width: 640px) {
+    .hero-meta { grid-template-columns: 1fr; }
+    .fighter-record { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-nav">
+    <a class="back-link" href="ifl-table-booking.html">&larr; Back to table booking</a>
+  </div>
+
+  <div class="kicker">APFC: Indian Fight League</div>
+  <h1>IFL: Hyderabad vs North East</h1>
+  <p class="promo">Franchise MMA · Indian Fight League, backed by former UFC champion Anthony Pettis</p>
+
+  <div class="hero-meta">
+    <div class="meta-card">
+      <div class="label">Date</div>
+      <div class="value">Sat, Aug 8, 2026</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Time</div>
+      <div class="value">Doors 4:00 PM</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Venue</div>
+      <div class="value">Gachibowli Stadium</div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="ifl-table-booking.html">Book a table</a>
+    <a class="btn btn-secondary" href="https://instagram.com/ifl.apfc/" target="_blank" rel="noopener">Follow @ifl.apfc</a>
+  </div>
+
+  <section>
+    <h2>About the event</h2>
+    <div class="card">
+      <p class="about-text">
+        Indian Fight League (IFL) is India's first franchise-based professional MMA league,
+        with city teams competing across a multi-event season. This card, <strong>Hyderabad vs North East</strong>,
+        is a 9-bout showdown at Gachibowli Indoor Stadium, live on the evening of August 8, 2026.
+        The main card broadcasts globally on UFC Fight Pass, with preliminary bouts streamed on YouTube.
+      </p>
+      <p class="source-note">
+        Fight card details sourced from Tapology's event listing and may be subject to change ahead of fight night.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Venue</h2>
+    <div class="card">
+      <div class="fighter-row" style="margin-bottom:6px">
+        <span class="fighter-name">Gachibowli Indoor Stadium</span>
+      </div>
+      <p class="about-text">Hyderabad, Telangana, India</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fight card</h2>
+    <div class="card">
+
+      <div class="bout main-event">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Event</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Abdul Azim Badakhshi</span>
+            <span class="fighter-record">14-5</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Siwuhaer Husiman</span>
+            <span class="fighter-record">19-10</span>
+          </div>
+        </div>
+        <div class="bout-weight">Featherweight</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Edukondala Rao</span>
+            <span class="fighter-record">4-2-1</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Angami Kekhrieneitso</span>
+            <span class="fighter-record">4-0</span>
+          </div>
+        </div>
+        <div class="bout-weight">145 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Kon Jarbin</span>
+            <span class="fighter-record">2-1</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Athul D Hotkar</span>
+            <span class="fighter-record">1-1</span>
+          </div>
+        </div>
+        <div class="bout-weight">145 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Paranveer Singh</span>
+            <span class="fighter-record">0-0</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Ritesh Singh</span>
+            <span class="fighter-record">0-0</span>
+          </div>
+        </div>
+        <div class="bout-weight">170 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Prashanth Guda</span>
+            <span class="fighter-record">3-1</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">David Chhangte</span>
+            <span class="fighter-record">1-3</span>
+          </div>
+        </div>
+        <div class="bout-weight">125 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Rayyan Butt</span>
+            <span class="fighter-record">3-2</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Rajesh Pujari</span>
+            <span class="fighter-record">1-2</span>
+          </div>
+        </div>
+        <div class="bout-weight">155 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Laxman Govekar</span>
+            <span class="fighter-record">0-1</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Goodwin Ningshen</span>
+            <span class="fighter-record">1-0</span>
+          </div>
+        </div>
+        <div class="bout-weight">125 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Vikas Subhash Jaiswar</span>
+            <span class="fighter-record">3-3</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Tulashidas Ningbombam</span>
+            <span class="fighter-record">3-2</span>
+          </div>
+        </div>
+        <div class="bout-weight">135 lb</div>
+      </div>
+
+      <div class="bout">
+        <div class="bout-fighters">
+          <span class="bout-tag">Main Card</span>
+          <div class="fighter-row" style="margin-top:8px">
+            <span class="fighter-name">Rabi Azizi</span>
+            <span class="fighter-record">1-2-1</span>
+          </div>
+          <div class="vs">vs</div>
+          <div class="fighter-row">
+            <span class="fighter-name">Pankaj Mehra</span>
+            <span class="fighter-record">0-0</span>
+          </div>
+        </div>
+        <div class="bout-weight">125 lb</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <div class="card">
+      <div class="faq-item">
+        <div class="faq-q">What time do doors open?</div>
+        <p class="faq-a">Doors open in the evening on August 8, 2026. Arrive early to allow time for entry and security checks.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I book a table?</div>
+        <p class="faq-a">Use the seating chart on the <a href="ifl-table-booking.html">table booking page</a> to pick and confirm your table.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where can I get updates on the event?</div>
+        <p class="faq-a">Follow <a href="https://instagram.com/ifl.apfc/" target="_blank" rel="noopener">@ifl.apfc</a> on Instagram for the latest announcements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="card">
+      <div class="contact-row">
+        <span>Instagram:</span>
+        <a href="https://instagram.com/ifl.apfc/" target="_blank" rel="noopener">@ifl.apfc</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
