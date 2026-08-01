@@ -32,9 +32,28 @@
   a { color: var(--color-accent); text-decoration: none; }
   a:hover { color: var(--color-accent-300); }
   .wrap { max-width: 900px; margin: 0 auto; padding: 28px 24px 64px; }
-  .top-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
-  .back-link { font-size: 13px; color: var(--color-neutral-400); display: inline-flex; align-items: center; gap: 6px; }
-  .back-link:hover { color: var(--color-accent-300); }
+  .site-nav {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; background: var(--color-surface);
+    border-bottom: 1px solid var(--color-divider);
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--font-heading); font-weight: 600; font-size: 14.5px;
+    color: var(--color-text); letter-spacing: -.005em;
+  }
+  .nav-brand:hover { color: var(--color-text); }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-link {
+    font-size: 13.5px; padding: 8px 14px; border-radius: var(--radius-md);
+    color: var(--color-neutral-400); font-weight: 500;
+  }
+  .nav-link:hover { color: var(--color-text); background: color-mix(in srgb, var(--color-text) 6%, transparent); }
+  .nav-link.active { color: var(--color-accent-300); background: rgba(150,138,224,.14); }
   .kicker {
     font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
     color: var(--color-accent); font-weight: 600; margin-bottom: 10px;
@@ -101,26 +120,27 @@
   .faq-q { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
   .faq-a { font-size: 13.5px; color: var(--color-neutral-400); margin: 0; }
   .contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
-  .floating-book {
-    position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
-    z-index: 50; box-shadow: var(--shadow-lg, 0 16px 40px rgba(0,0,0,.5));
-    background: var(--color-accent); color: #1b1d2b; border-color: var(--color-accent);
-    padding: 12px 26px; font-size: 14.5px;
-  }
-  .floating-book:hover { background: var(--color-accent-300); color: #1b1d2b; }
   @media (max-width: 640px) {
     .hero-meta { grid-template-columns: 1fr; }
     .fighter-record { display: none; }
-    .floating-book { width: calc(100% - 32px); }
+    .nav-links { gap: 2px; }
+    .nav-link { padding: 8px 10px; font-size: 12.5px; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="top-nav">
-    <a class="back-link" href="ifl-table-booking.html">&larr; Back to table booking</a>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Indian Fight League</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Event Details</a>
+      <a href="ifl-table-booking.html" class="nav-link">Book a Table</a>
+    </div>
   </div>
+</nav>
+
+<div class="wrap">
 
   <div class="kicker">APFC: Indian Fight League</div>
   <h1>IFL: Hyderabad vs North East</h1>
@@ -351,8 +371,6 @@
   </section>
 
 </div>
-
-<a class="btn btn-primary floating-book" href="ifl-table-booking.html">Book a table</a>
 
 </body>
 </html>
